@@ -1,0 +1,31 @@
+<html>
+
+<!-- has turned into index.html, may be retired -->
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.7.0/tf.js"></script>
+    <script src="bufferplayer.js"></script>
+    <script src="remaps.js"></script>
+
+    <script> 
+        // Load yamnet model.
+        let model;
+        (async function () {
+            const modelUrl = 'https://tfhub.dev/google/tfjs-model/yamnet/tfjs/1';
+            model = await tf.loadGraphModel(modelUrl, { fromTFHub: true });
+        })();
+
+    </script>
+    <script src="yamnetparsing.js"></script>
+
+</head>  
+<body>
+    <div id="console"></div>
+    <script>
+
+
+    </script>
+</body>
+
+</html>
+

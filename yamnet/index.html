@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- libraries -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.7.0/tf.js"></script> -->
+    <script src="libs/tensorflow27.js"></script>
+
+    <script src="libs/p5.min.js"></script>
+
+    <!-- aux scripts -->
+    <script src="scripts/onepole.js"></script>
+    <script src="scripts/helpers.js"></script>
+    <script src="scripts/remaps.js"></script>
+
+    <!-- main scripts -->
+    <script src="scripts/particle_display.js"></script>
+    <script src="scripts/bufferplayer.js"></script>
+
+    <script> 
+        // Load yamnet model.
+        let model;
+        (async function () {
+            // const modelUrl = 'https://tfhub.dev/google/tfjs-model/yamnet/tfjs/1';
+            // model = await tf.loadGraphModel(modelUrl, { fromTFHub: true });
+            const modelURL = 'libs/yamnet/model.json'
+            model = await tf.loadGraphModel(modelURL);
+            
+        })();
+
+    </script>
+    <script src="scripts/yamnetparsing.js"></script>
+
+</head>  
+<body>
+    <div id="console"></div>
+    <script>
+
+  
+    </script>
+</body>
+
+</html>
+
