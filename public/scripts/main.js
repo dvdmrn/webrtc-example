@@ -1,5 +1,3 @@
-console.log('Main JS!');
-
 
 // Map All HTML Elements
 const videoGrid = document.getElementById('video-grid');

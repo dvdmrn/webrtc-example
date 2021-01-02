@@ -5,6 +5,7 @@
   <title>audio context</title>
   <link rel="stylesheet" href="style.css">
 
+  <script src="scripts/detectbrowser.js" defer></script>
   <script src="/socket.io/socket.io.js"></script>
   
   <!-- libraries -->
@@ -40,7 +41,8 @@
 
 </head>
 <body>
-  <h1>Hello!</h1>
+  <h1>Hello!</h1><br/>
+  <span id="message"></span>
 
   <!-- My Video and Remote Video from connection -->
   <div id="video-grid">

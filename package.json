@@ -1,9 +1,9 @@
 {
-  "name": "webrtc-example",
+  "name": "webrtc-audio-context",
   "version": "1.0.0",
   "main": "server.js",
   "repository": "git@github.com:jeffersonxavier/webrtc-example.git",
-  "author": "Jefferson Xavier <jeffersonx.xavier@gmail.com>",
+  "author": "WebRTC scaffolding: Jefferson Xavier <jeffersonx.xavier@gmail.com>, audio features: David Marino, <dmarino@cim.mcgill.ca> Max Henry, Pascal Fortin",
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
