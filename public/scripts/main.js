@@ -7,6 +7,14 @@ const sendButton = document.getElementById('message-button');
 const localVideo = document.getElementById('local-video');
 const remoteVideo = document.getElementById('remote-video');
 
+const iceConfiguration = {}
+iceConfiguration.iceServers = [];
+
+//stun server
+iceConfiguration.iceServers.push({
+  urls: 'turn:stun1.l.google.com:19302'
+})
+
 const logMessage = (message) => {
   const newMessage = document.createElement('div');
   newMessage.innerText = message;
@@ -69,7 +77,7 @@ const initConnection = (stream) => {
     const socketId = otherUsers[0];
 
     // Ininit peer connection
-    localConnection = new RTCPeerConnection();
+    localConnection = new RTCPeerConnection(iceConfiguration);
 
     // Add all tracks from stream to peer connection
     stream.getTracks().forEach(track => localConnection.addTrack(track, stream));
