@@ -12,7 +12,7 @@ iceConfiguration.iceServers = [];
 
 //stun server
 iceConfiguration.iceServers.push({
-  urls: 'turn:stun1.l.google.com:19302'
+  urls: 'stun:stun1.l.google.com:19302'
 })
 
 const logMessage = (message) => {
