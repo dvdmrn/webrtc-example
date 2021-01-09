@@ -14,6 +14,15 @@ iceConfiguration.iceServers = [];
 iceConfiguration.iceServers.push({
   urls: 'stun:stun1.l.google.com:19302'
 })
+iceConfiguration.iceServers.push({
+  urls: 'stun:stun3.l.google.com:19302'
+})
+
+iceConfiguration.iceServers.push({
+  urls: 'stun:stun4.l.google.com:19302'
+})
+
+console.log("ice configuration set...", iceConfiguration)
 
 const logMessage = (message) => {
   const newMessage = document.createElement('div');
