@@ -13,13 +13,13 @@ iceConfiguration.iceServers = [
       urls: [
               'stun:stun1.l.google.com:19302',
               'stun:stun3.l.google.com:19302',
-              'stun:stun4.l.google.com:19302'
+              'stun:stun3.l.google.com:19302'
             ]
     },
     {
       urls: 'turn:numb.viagenie.ca',
-      credential: 'muazkh',
-      username: 'webrtc@live.com'
+      credential: 'aWWecSQ7sifCCae',
+      username: 'dgm.marino@gmail.com'
     },
 ];
 
