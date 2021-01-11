@@ -8,19 +8,32 @@ const localVideo = document.getElementById('local-video');
 const remoteVideo = document.getElementById('remote-video');
 
 const iceConfiguration = {}
-iceConfiguration.iceServers = [];
+iceConfiguration.iceServers = [
+    {
+      urls: [
+              'stun:stun1.l.google.com:19302',
+              'stun:stun3.l.google.com:19302',
+              'stun:stun4.l.google.com:19302'
+            ]
+    },
+    {
+      urls: 'turn:numb.viagenie.ca',
+      credential: 'muazkh',
+      username: 'webrtc@live.com'
+    },
+];
 
-//stun server
-iceConfiguration.iceServers.push({
-  urls: 'stun:stun1.l.google.com:19302'
-})
-iceConfiguration.iceServers.push({
-  urls: 'stun:stun3.l.google.com:19302'
-})
+// //stun server
+// iceConfiguration.iceServers.push({
+//   urls: 'stun:stun1.l.google.com:19302'
+// })
+// iceConfiguration.iceServers.push({
+//   urls: 'stun:stun3.l.google.com:19302'
+// })
 
-iceConfiguration.iceServers.push({
-  urls: 'stun:stun4.l.google.com:19302'
-})
+// iceConfiguration.iceServers.push({
+//   urls: 'stun:stun4.l.google.com:19302'
+// })
 
 console.log("ice configuration set...", iceConfiguration)
 
