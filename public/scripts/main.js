@@ -135,8 +135,9 @@ const initConnection = (stream) => {
 
   // Receive Offer From Other Client
   socket.on('offer', (socketId, description) => {
+    console.log("✨ received offer! ",description)
     // Ininit peer connection
-    remoteConnection = new RTCPeerConnection();
+    remoteConnection = new RTCPeerConnection(iceConfiguration);
 
     // Add all tracks from stream to peer connection
     stream.getTracks().forEach(track => remoteConnection.addTrack(track, stream));
@@ -176,6 +177,7 @@ const initConnection = (stream) => {
 
   // Receive Answer to establish peer connection
   socket.on('answer', (description) => {
+    console.log("✨ received answer! ", description)
     localConnection.setRemoteDescription(description);
   });
 
