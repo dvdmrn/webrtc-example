@@ -17,9 +17,9 @@ iceConfiguration.iceServers = [
             ]
     },
     {
-      urls: 'turn:numb.viagenie.ca',
-      credential: 'aWWecSQ7sifCCae',
-      username: 'dgm.marino@gmail.com'
+      urls: 'turn:132.206.74.208:3478',
+      credential: 'BY5JmwXCWWRKZEC/bnW4TKAUssM=',
+      username: '1610510074'
     },
 ];
 
