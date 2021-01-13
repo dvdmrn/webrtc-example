@@ -23,17 +23,6 @@ iceConfiguration.iceServers = [
     },
 ];
 
-// //stun server
-// iceConfiguration.iceServers.push({
-//   urls: 'stun:stun1.l.google.com:19302'
-// })
-// iceConfiguration.iceServers.push({
-//   urls: 'stun:stun3.l.google.com:19302'
-// })
-
-// iceConfiguration.iceServers.push({
-//   urls: 'stun:stun4.l.google.com:19302'
-// })
 
 console.log("ice configuration set...", iceConfiguration)
 
@@ -66,7 +55,9 @@ const findSource = ()=>{
   if (canvasSource) {
     console.log("found canvas!")
     console.log("canvas: ", canvasSource)
+    document.getElementById("source-vid-capture").muted = true;
     setupSource(canvasSource)
+
 
   }
   else {
@@ -86,7 +77,6 @@ const setupSource = (source)=>{
 const initConnection = (stream) => {
   const socket = io('/');
   let localConnection;
-
   let remoteConnection;
   let localChannel;
   let remoteChannel;
