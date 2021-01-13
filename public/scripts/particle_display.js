@@ -40,7 +40,7 @@ function setup() {
   let canv = createCanvas(640, 480);
   canv.id('canvas-viz');
   // canv.parent("video-grid")
-  capture = createCapture(VIDEO);
+  capture = createCapture();
   capture.size(640, 480);
   capture.hide();
   canv.hide()
