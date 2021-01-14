@@ -39,18 +39,17 @@ var filt0 = new OnePole(a1);
 function setup() {
   let canv = createCanvas(640, 480);
   canv.id('canvas-viz');
-  let constraints = {
-    audio: true,
-    video: true,
-    muted: true
-  }
+  // let constraints = {
+  //   audio: true,
+  //   video: true,
+  //   muted: true
+  // }
   // canv.parent("video-grid")
-  capture = createCapture(constraints);
+  capture = createCapture();
   capture.id('source-vid-capture')
-  capture.size(640, 480);
+  capture.size(400, 400);
   capture.hide();
-  canv.hide()
-  
+  canv.parent(document.getElementById('video-grid'))
   // system = new ParticleSystem(createVector(0, (height/3)*2));
   system = new ParticleSystem(createVector(0, height / 2));
 

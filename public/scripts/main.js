@@ -4,7 +4,7 @@ const videoGrid = document.getElementById('video-grid');
 const messagesEl = document.querySelector('.messages');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('message-button');
-const localVideo = document.getElementById('local-video');
+const localVideo = document.getElementById('canvas-viz');
 const remoteVideo = document.getElementById('remote-video');
 
 const iceConfiguration = {}
@@ -55,9 +55,8 @@ const findSource = ()=>{
   if (canvasSource) {
     console.log("found canvas!")
     console.log("canvas: ", canvasSource)
-    document.getElementById("source-vid-capture").muted = true;
+    // document.getElementById("source-vid-capture").muted = true;
     setupSource(canvasSource)
-
 
   }
   else {
@@ -70,7 +69,6 @@ const findSource = ()=>{
 
 const setupSource = (source)=>{
   let stream = source.captureStream()
-  localVideo.srcObject = stream;
   initConnection(stream)
 }
 
