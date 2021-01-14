@@ -1,28 +1,38 @@
-
 // Map All HTML Elements
 const videoGrid = document.getElementById('video-grid');
 const messagesEl = document.querySelector('.messages');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('message-button');
-const localVideo = document.getElementById('canvas-viz');
+const localVideo = document.getElementById('local-video');
 const remoteVideo = document.getElementById('remote-video');
 
 const iceConfiguration = {}
 iceConfiguration.iceServers = [
-    {
-      urls: [
-              'stun:stun1.l.google.com:19302',
-              'stun:stun3.l.google.com:19302',
-              'stun:stun3.l.google.com:19302'
-            ]
-    },
-    {
-      urls: 'turn:132.206.74.208:3478',
-      credential: 'BY5JmwXCWWRKZEC/bnW4TKAUssM=',
-      username: '1610510074'
-    },
+  {
+    urls: [
+      'stun:stun1.l.google.com:19302',
+      'stun:stun3.l.google.com:19302',
+      'stun:stun3.l.google.com:19302'
+    ]
+  },
+  {
+    urls: 'turn:132.206.74.208:3478',
+    credential: 'BY5JmwXCWWRKZEC/bnW4TKAUssM=',
+    username: '1610510074'
+  },
 ];
 
+// //stun server
+// iceConfiguration.iceServers.push({
+//   urls: 'stun:stun1.l.google.com:19302'
+// })
+// iceConfiguration.iceServers.push({
+//   urls: 'stun:stun3.l.google.com:19302'
+// })
+
+// iceConfiguration.iceServers.push({
+//   urls: 'stun:stun4.l.google.com:19302'
+// })
 
 console.log("ice configuration set...", iceConfiguration)
 
@@ -48,14 +58,13 @@ const logMessage = (message) => {
 //   .catch(error => console.log(error));
 
 
-const findSource = ()=>{
+const findSource = () => {
   let canvasSource = document.getElementById('canvas-viz');
   videoGrid.style.display = 'grid';
   console.log("local vid: ", localVideo)
   if (canvasSource) {
     console.log("found canvas!")
     console.log("canvas: ", canvasSource)
-    // document.getElementById("source-vid-capture").muted = true;
     setupSource(canvasSource)
 
   }
@@ -67,14 +76,16 @@ const findSource = ()=>{
 
 
 
-const setupSource = (source)=>{
+const setupSource = (source) => {
   let stream = source.captureStream()
+  localVideo.srcObject = stream;
   initConnection(stream)
 }
 
 const initConnection = (stream) => {
   const socket = io('/');
   let localConnection;
+
   let remoteConnection;
   let localChannel;
   let remoteChannel;
@@ -96,9 +107,9 @@ const initConnection = (stream) => {
     localConnection.onicecandidate = ({ candidate }) => {
       candidate && socket.emit('candidate', socketId, candidate);
     };
-  
+
     // Receive stream from remote client and add to remote video area
-    localConnection.ontrack = ({ streams: [ stream ] }) => {
+    localConnection.ontrack = ({ streams: [stream] }) => {
       remoteVideo.srcObject = stream;
     };
 
@@ -123,7 +134,7 @@ const initConnection = (stream) => {
 
   // Receive Offer From Other Client
   socket.on('offer', (socketId, description) => {
-    console.log("✨ received offer! ",description)
+    console.log("✨ received offer! ", description)
     // Ininit peer connection
     remoteConnection = new RTCPeerConnection(iceConfiguration);
 
@@ -134,9 +145,9 @@ const initConnection = (stream) => {
     remoteConnection.onicecandidate = ({ candidate }) => {
       candidate && socket.emit('candidate', socketId, candidate);
     };
-  
+
     // Receive stream from remote client and add to remote video area
-    remoteConnection.ontrack = ({ streams: [ stream ] }) => {
+    remoteConnection.ontrack = ({ streams: [stream] }) => {
       remoteVideo.srcObject = stream;
     };
 

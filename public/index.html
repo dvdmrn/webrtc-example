@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>audio context</title>
@@ -7,21 +8,21 @@
 
   <script src="scripts/detectbrowser.js" defer></script>
   <script src="/socket.io/socket.io.js"></script>
-  
+
   <!-- libraries -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.7.0/tf.js"></script> -->
   <script src="libs/tensorflow27.js"></script>
-  
+
   <script src="libs/p5.min.js"></script>
-  
+
   <!-- aux scripts -->
   <script src="scripts/onepole.js"></script>
   <script src="scripts/helpers.js"></script>
   <script src="scripts/remaps.js"></script>
-  
+
   <!-- main scripts -->
   <script src="scripts/bufferplayer.js"></script>
-  
+
   <script>
     // Load yamnet model.
     let model;
@@ -30,23 +31,24 @@
       // model = await tf.loadGraphModel(modelUrl, { fromTFHub: true });
       const modelURL = 'libs/yamnet/model.json'
       model = await tf.loadGraphModel(modelURL);
-      
+
     })();
-    
-    </script>
+
+  </script>
   <script src="scripts/yamnetparsing.js"></script>
-  
+
   <script src="scripts/particle_display.js"></script>
-  <script src="/scripts/main.js" type="module" ></script>
+  <script src="/scripts/main.js" type="module"></script>
 
 </head>
+
 <body>
-  <h1>Hello!</h1><br/>
+  <h1>Hello!</h1><br />
   <span id="message"></span>
 
   <!-- My Video and Remote Video from connection -->
   <div id="video-grid">
-    <!-- <video playsinline autoplay muted id="local-video"></video> -->
+    <video playsinline autoplay muted id="local-video"></video>
     <video playsinline autoplay id="remote-video"></video>
   </div>
 
@@ -62,4 +64,5 @@
   <div id="console"></div>
 
 </body>
+
 </html>
