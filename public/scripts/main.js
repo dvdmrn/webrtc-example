@@ -65,7 +65,20 @@ const findSource = () => {
   if (canvasSource) {
     console.log("found canvas!")
     console.log("canvas: ", canvasSource)
-    setupSource(canvasSource)
+    navigator.mediaDevices.getUserMedia({
+      audio: true
+    }).then(audioStream => {
+      let audioTracks = []
+      audioStream.getAudioTracks().forEach(
+        track => { 
+          console.log("grabbing audio track: ",track);
+          audioTracks.push(track)
+        }
+        )
+        
+        setupSource(canvasSource, audioTracks)
+        
+    })
 
   }
   else {
@@ -76,10 +89,15 @@ const findSource = () => {
 
 
 
-const setupSource = (source) => {
-  let stream = source.captureStream()
-  localVideo.srcObject = stream;
-  initConnection(stream)
+const setupSource = (canvasSource, audio) => {
+  let mixedStream = new MediaStream([
+    canvasSource.captureStream().getVideoTracks()[0],
+    audio[0]
+  ])
+  console.log(mixedStream)
+  // let stream = source.captureStream()
+  localVideo.srcObject = canvasSource.captureStream();
+  initConnection(mixedStream)
 }
 
 const initConnection = (stream) => {

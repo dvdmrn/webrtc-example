@@ -35,11 +35,14 @@ function setup() {
   let canv = createCanvas(640, 480);
   canv.id('canvas-viz');
   // canv.parent("video-grid")
-  capture = createCapture();
+  capture = createCapture(VIDEO);
+  capture.id("sourceVidCapture");
   capture.size(640, 480);
   capture.hide();
   canv.hide()
 
+ 
+  // mic = new p5.AudioIn();
   // system = new ParticleSystem(createVector(0, (height/3)*2));
   system = new ParticleSystem(createVector(0, height / 2));
 
