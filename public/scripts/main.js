@@ -17,8 +17,8 @@ iceConfiguration.iceServers = [
   },
   {
     urls: 'turn:132.206.74.208:3478',
-    credential: 'BY5JmwXCWWRKZEC/bnW4TKAUssM=',
-    username: '1610510074'
+    credential: 'ecAK8id7Rb6Q0qVJtZrsY+joKVM=',
+    username: '1621283332'
   },
 ];
 
