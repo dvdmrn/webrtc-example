@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>audio context</title>
   <link rel="stylesheet" href="style.css">
+  
 
   <script src="scripts/detectbrowser.js" defer></script>
   <script src="/socket.io/socket.io.js"></script>
@@ -43,11 +44,16 @@
 </head>
 
 <body>
-  <h1>Audio Context Live Demo</h1><br />
-  This device visualizes the acoustics and semantics of your auditory environment while videoconferencing <br />
+  <h1>Audio Context Prototype Demo</h1><br />
+  This device visualizes your aural environment while videoconferencing. Particles respond to sound semantics: {artificial, organic, indoor, outdoor, background, foreground} and acoustics: {pitch, loudness} <br />
+  Further details will be disclosed in our upcoming CSCW paper. <br />
   <b>⚠️ STUN server is online but TURN server is offline </b> - Your video feed will not be broadcasted to other users unless you are on the same local network.
   <p></p>
 
+
+  <p>
+    <span class="lol">"If the feed is laggy, try refreshing the page"</span>
+  </p>
   <span id="message"></span>
 
   <!-- My Video and Remote Video from connection -->
