@@ -66,6 +66,7 @@ window.onload = () => {
     
             let waveform = myPlayer.tick(thisBuffer);
             let wvTensor = tf.tensor(waveform);
+            console.log(wvTensor)
             
             
             // Yamnet predictions.
