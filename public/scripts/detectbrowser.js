@@ -4,5 +4,5 @@ if(isChrome){
     console.log("client using chrome");
 }
 else{
-    document.getElementById("message").innerHTML = "How naughty, I am detecting that you are not using Chrome. This will probably not display properly X( <p> Yeah I know Chrome sucks but I don't make the API"
+    document.getElementById("message").innerHTML = "<b>warning:</b> I am detecting that you are not using Chrome. This will probably not display properly or be super laggy X("
 }
